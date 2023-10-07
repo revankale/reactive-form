@@ -1,0 +1,81 @@
+<div class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <h3 style="color: aliceblue;">reactive form crud</h3>
+    <div class="d-flex">
+      <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">add
+        employee</button>
+    </div>
+  </div>
+</div>
+
+<table class="table text-center mt-3">
+  <thead>
+    <tr>
+      <th scope="col">employee id</th>
+      <th scope="col">first name</th>
+      <th scope="col">last name</th>
+      <th scope="col">email</th>
+      <th scope="col">mobile no</th>
+      <th scope="col">salary</th>
+      <th scope="col">action</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr>
+      <td>1</td>
+      <td>gautam</td>
+      <td>buddha</td>
+      <td>qwe@gmail.com</td>
+      <td>12345678</td>
+      <td>$ 70,000</td>
+      <td>
+        <button class="btn btn-info">edit</button>
+        <button class="btn btn-danger mx-3">delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">employee details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">first name</label>
+            <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp">
+
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">last name</label>
+            <input type="text" formControlName="last name" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">email</label>
+            <input type="email" formControlName="email" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">mobile no</label>
+            <input type="number" formControlName="mobile" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">salary</label>
+            <input type="number" formControlName="salary" class="form-control" id="exampleInputPassword1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
