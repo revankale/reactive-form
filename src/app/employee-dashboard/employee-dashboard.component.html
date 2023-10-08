@@ -50,13 +50,13 @@
         <form [formGroup]="formValue">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">first name</label>
-            <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1"
+            <input type="text" formControlName="firstName" class="form-control" id="exampleInputEmail1"
               aria-describedby="emailHelp">
 
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">last name</label>
-            <input type="text" formControlName="last name" class="form-control" id="exampleInputPassword1">
+            <input type="text" formControlName="lastName" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">email</label>
@@ -73,8 +73,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add</button>
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="postEmployeeDetails()">Add</button>
       </div>
     </div>
   </div>
