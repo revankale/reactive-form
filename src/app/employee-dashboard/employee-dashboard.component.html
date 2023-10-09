@@ -2,7 +2,8 @@
   <div class="container-fluid">
     <h3 style="color: aliceblue;">reactive form crud</h3>
     <div class="d-flex">
-      <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">add
+      <button class="btn btn-success" (click)="clickAddEmployee()" type="button" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop">add
         employee</button>
     </div>
   </div>
@@ -21,16 +22,17 @@
     </tr>
   </thead>
   <tbody class="table-group-divider">
-    <tr>
-      <td>1</td>
-      <td>gautam</td>
-      <td>buddha</td>
-      <td>qwe@gmail.com</td>
-      <td>12345678</td>
-      <td>$ 70,000</td>
+    <tr *ngFor="let row of employeeArray;let sr=index">
+      <td>{{sr+1}}</td>
+      <td>{{row.firstName}}</td>
+      <td>{{row.lastName}}</td>
+      <td>{{row.email}}</td>
+      <td>{{row.mobile}}</td>
+      <td>{{row.salary | currency :'INR'}}</td>
       <td>
-        <button class="btn btn-info">edit</button>
-        <button class="btn btn-danger mx-3">delete</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="onEdit(row)"
+          class="btn btn-sm btn-info">edit</button>
+        <button (click)="deleteEmployee(row)" class="btn btn-sm btn-danger mx-3">delete</button>
       </td>
     </tr>
   </tbody>
@@ -74,7 +76,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="postEmployeeDetails()">Add</button>
+        <button type="button" *ngIf="showAdd" class="btn btn-primary" (click)="postEmployeeDetails()">Add</button>
+        <button type="button" *ngIf="showUpadate" class="btn btn-primary"
+          (click)="updateEmployeeDetails()">Update</button>
       </div>
     </div>
   </div>
